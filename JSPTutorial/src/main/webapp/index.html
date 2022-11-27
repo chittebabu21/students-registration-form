@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Students Registration</title>
+</head>
+<body>
+    <form action="submit.jsp" onsubmit="return validateForm();" style="display: flex; flex-direction: column; margin: 5em 5em 0 5em;">
+        <label style="font-size: 22px; font-family: monospace;">First Name</label>
+        <input id="first-name" style="width: 25%; padding: 0.8em; border-radius: 10px; margin-bottom: 1em;" type="text" placeholder="Enter first name" name="first-name">
+        <label style="font-size: 22px; font-family: monospace;">Last Name</label>
+        <input style="width: 25%; padding: 0.8em; border-radius: 10px; margin-bottom: 1em;" type="text" placeholder="Enter last name" name="last-name">
+        <div style="display: flex; margin-bottom: .6em;">
+            <label style="font-size: 22px; font-family: monospace;">Male</label>
+            <input style="margin-right: 50px;" type="radio" value="Male" name="gender" checked>
+            <label style="font-size: 22px; font-family: monospace;">Female</label>
+            <input type="radio" value="Female" name="gender">
+        </div>
+        <label style="font-size: 22px; font-family: monospace;">Address</label>
+        <textarea style="border-radius: 10px; margin-bottom: 1em; border: 1px solid black; width: 27%;" rows="5" name="address" placeholder="Enter your address"></textarea>
+        <label style="font-size: 22px; font-family: monospace;">Phone Number</label>
+        <input id="phone" style="width: 25%; padding: 0.8em; border-radius: 10px; margin-bottom: 1em;" type="text" placeholder="Enter phone number" name="phone-number">
+        <label style="font-size: 22px; font-family: monospace;">Select a course</label>
+        <select style="width: 20%; padding: 0.5em; margin-bottom: 1.5em; border-radius: 10px;" name="course">
+            <option value="Programming in Java">Programming in Java</option>
+            <option value="Programming in .NET">Programming in .NET</option>
+            <option value="Microsoft Office">Microsoft Office</option>
+            <option value="HTML">HTML</option>
+        </select>
+        <div style="display: flex;">
+            <button id="btn" style="letter-spacing: 0.5em; width: 10%; padding: 1em; border-radius: 10px; background-color: blue; color: white; cursor: pointer;" type="submit">Submit</button>
+            <button style="letter-spacing: 0.5em; width: 10%; padding: 1em; border-radius: 10px; margin-left: 1.5em; background-color: blue; color: white; cursor: pointer;" type="reset">Clear</button>
+        </div>
+    </form>
+<!--    <div style="display: flex; flex-direction: row; margin: 0 5em 0 5em;">-->
+<!--        <form action="update.jsp">-->
+<!--            <button style="letter-spacing: 0.5em; padding: 1em; border-radius: 10px; background-color: blue; color: white; cursor: pointer; margin: 1em 1em 0 0;" type="submit">Update</button>-->
+<!--        </form>-->
+<!--        <form action="delete.jsp">-->
+<!--            <button style="letter-spacing: 0.5em; padding: 1em; border-radius: 10px; background-color: blue; color: white; cursor: pointer; margin: 1em 1em 0 0;" type="submit">Delete</button>-->
+<!--        </form>-->
+<!--        <form action="view.jsp">-->
+<!--            <button style="letter-spacing: 0.5em; padding: 1em; border-radius: 10px; background-color: blue; color: white; cursor: pointer; margin: 1em 1em 0 0;" type="submit">View</button>-->
+<!--        </form>-->
+<!--    </div>-->
+    <script type="text/javascript">
+        function validateForm() {
+            const phoneNumber = document.getElementById("phone");
+            const firstName = document.getElementById("first-name");
+
+            if (firstName.value === null || firstName.value === "") {
+                window.alert("Please enter your first name");
+                return false;
+            } else if (phoneNumber.value.length < 5 || phoneNumber.value.length > 11) {
+                window.alert("Please enter a valid phone number");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>
